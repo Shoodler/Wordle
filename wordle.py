@@ -1,5 +1,21 @@
-import random
+import subprocess
+import sys
+
+# Function to check if pygame is installed and install it if not (Admin needed to run the pip install)
+def install_pygame():
+    try:
+        import pygame
+        print("pygame is already installed!")
+    except ImportError:
+        print("pygame is not installed. Installing pygame...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "pygame"])
+        print("pygame installation complete!")
+
+# Call the function to ensure pygame is installed
+install_pygame()
+
 import pygame as pg
+import random
 from pathlib import Path
 
 #Loading files-------------------------------------
